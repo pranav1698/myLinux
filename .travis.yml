@@ -1,0 +1,30 @@
+language: generic
+
+include: 
+  - os: linux
+    addons:
+    apt:
+      update: true
+      sources:
+        - ubuntu-toolchain-r-test
+      packages: 
+        - debootstrap
+        - genisoimage
+        - p7zip-full
+        - squashfs-tools
+        - ubuntu-dev-tools
+        - dpkg-dev
+        - debhelper
+        - fakeroot
+        - devscripts
+
+sudo: required
+dist: xenial
+git: 
+  depth: 22
+
+before_script: 
+  - sudo locale-gen en_US.UTF-8
+  - sudo update-locale
+  - locale -a
+
